@@ -6,14 +6,15 @@ import java.util.Scanner;
 public class TriangleArea {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
-        String[] line = in.nextLine().split("\\s+");
-        double x1 = Double.parseDouble(line[0]);
-        double y1 = Double.parseDouble(line[1]);
-        double x2 = Double.parseDouble(line[2]);
-        double y2 = Double.parseDouble(line[3]);
-        double x3 = Double.parseDouble(line[4]);
-        double y3 = Double.parseDouble(line[5]);
 
+        int x1 = in.nextInt();
+        int y1 = in.nextInt();
+        int x2 = in.nextInt();
+        int y2 = in.nextInt();
+        int x3 = in.nextInt();
+        int y3 = in.nextInt();
 
+        int result = (x1 * (y2 - y3) + x2 * (y3 - y1) + x3 * (y1 - y2)) / 2;
+        System.out.println(Math.abs(result));
     }
 }
