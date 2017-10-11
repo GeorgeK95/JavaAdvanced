@@ -1,105 +1,134 @@
-import java.util.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Stream;
 
 /**
  * Created by George-Lenovo on 6/29/2017.
  */
 public class InfernoIII {
-    private static Deque<int[]> history = new ArrayDeque<>();
-    private static int[] collected;
-    private static Set<Integer> indexesToRemove = new HashSet<>();
+    private static Map<String, List<Integer>> commandsIndexes = new LinkedHashMap<>();
+    private static int[] numbers;
 
-    public static void main(String[] args) {
-        Scanner in = new Scanner(System.in);
-        collected = Arrays.stream(in.nextLine().split("\\s+")).mapToInt(Integer::parseInt).toArray();
-        history.addLast(collected);
-
+    public static void main(String[] args) throws IOException {
+        BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+        numbers = Stream.of(in.readLine().split(" ")).mapToInt(Integer::parseInt).toArray();
         while (true) {
-            String line = in.nextLine();
-            if (line.equals("Forge")) {
+            String line = in.readLine();
+            if ("Forge".equals(line)) {
                 print();
                 break;
             }
             String[] split = line.split(";");
             switch (split[0]) {
                 case "Exclude":
-                    switch (split[1]) {
-                        case "Sum Left":
-                            sumLeft(Integer.parseInt(split[2]));
-                            break;
-                        case "Sum Right":
-                            sumRight(Integer.parseInt(split[2]));
-                            break;
-                        case "Sum Left Right":
-                            sumBoth(Integer.parseInt(split[2]));
-                            break;
-                    }
-                    history.addLast(collected);
-                    removeElementsAtPositions(indexesToRemove);
-                    indexesToRemove = new HashSet<>();
+                    exclude(split[1], Integer.parseInt(split[2]));
                     break;
                 case "Reverse":
-                    collected = history.poll();
+                    reverse(split[1], Integer.parseInt(split[2]));
                     break;
             }
         }
+
     }
 
-    private static void sumBoth(int searchedValue) {
-        for (int i = 0; i < collected.length; i++) {
-            int center = collected[i];
-            int left = 0;
-            int right = 0;
-            try {
-                left = collected[i - 1];
-                right = collected[i + 1];
-            } catch (IndexOutOfBoundsException ignored) {
-            }
-            if (left + center + right == searchedValue) {
-                indexesToRemove.add(i);
-            }
-        }
-    }
-
-    private static void sumRight(int searchedValue) {
-        for (int i = 0; i < collected.length; i++) {
-            int center = collected[i];
-            int right = 0;
-            try {
-                right = collected[i + 1];
-            } catch (IndexOutOfBoundsException ignored) {
-            }
-            if (center + right == searchedValue) {
-                indexesToRemove.add(i);
-            }
+    private static void reverse(String command, int resultToMatch) {
+        if (commandsIndexes.containsKey(command + resultToMatch)) {
+            commandsIndexes.remove(command + resultToMatch);
         }
     }
 
     private static void print() {
-        System.out.println(Arrays.toString(collected).replace("]", "").replace("[", "").replace(",", ""));
+        for (List<Integer> integers : commandsIndexes.values()) {
+            for (Integer integer : integers) {
+                numbers[integer] = -99;
+            }
+        }
+        for (Integer integer : numbers) {
+            if (integer != -99) {
+                System.out.print(integer + " ");
+            }
+        }
     }
 
-    private static void sumLeft(int searchedValue) {
-        for (int i = 0; i < collected.length; i++) {
-            int center = collected[i];
+    private static void exclude(String s, int i) {
+        switch (s) {
+            case "Sum Left":
+                sumLeft(s, i);
+                break;
+            case "Sum Right":
+                sumRight(s, i);
+                break;
+            case "Sum Left Right":
+                sumBoth(s, i);
+                break;
+        }
+    }
+
+    private static void sumBoth(String command, int resultToMatch) {
+        for (int j = 0; j < numbers.length; j++) {
+            int current = 0;
+            int left = 0;
+            int right = 0;
+            try {
+                current = numbers[j];
+                left = numbers[j - 1];
+                right = numbers[j + 1];
+            } catch (ArrayIndexOutOfBoundsException e) {
+                try {
+                    right = numbers[j + 1];
+                } catch (ArrayIndexOutOfBoundsException ee) {
+                }
+
+            }
+            if (current + left + right == resultToMatch) {
+                commandsIndexes.putIfAbsent(command + resultToMatch, new ArrayList<>());
+                List<Integer> integers = commandsIndexes.get(command + resultToMatch);
+                integers.add(j);
+                commandsIndexes.put(command + resultToMatch, integers);
+            }
+        }
+
+    }
+
+    private static void sumRight(String command, int resultToMatch) {
+        for (int j = 0; j < numbers.length - 1; j++) {
+            int current = numbers[j];
+            int right = 0;
+            try {
+                right = numbers[j + 1];
+            } catch (IndexOutOfBoundsException e) {
+
+            }
+            if (current + right == resultToMatch) {
+                commandsIndexes.putIfAbsent(command + resultToMatch, new ArrayList<>());
+                List<Integer> integers = commandsIndexes.get(command + resultToMatch);
+                integers.add(j);
+                commandsIndexes.put(command + resultToMatch, integers);
+            }
+        }
+    }
+
+    private static void sumLeft(String command, int resultToMatch) {
+        for (int j = numbers.length - 1; j >= 0; j--) {
+            int current = numbers[j];
             int left = 0;
             try {
-                left = collected[i - 1];
-            } catch (IndexOutOfBoundsException ignored) {
-            }
-            if (center + left == searchedValue) {
-                indexesToRemove.add(i);
-            }
-        }
-    }
+                left = numbers[j - 1];
+            } catch (IndexOutOfBoundsException e) {
 
-    private static void removeElementsAtPositions(Set<Integer> indexesToRemove) {
-        List<Integer> result = new ArrayList<>();
-        for (int i = 0; i < collected.length; i++) {
-            if (!indexesToRemove.contains(i)) {
-                result.add(collected[i]);
+            }
+            if (current + left == resultToMatch) {
+                commandsIndexes.putIfAbsent(command + resultToMatch, new ArrayList<>());
+                List<Integer> integers = commandsIndexes.get(command + resultToMatch);
+                integers.add(j);
+                commandsIndexes.put(command + resultToMatch, integers);
             }
         }
-        collected = result.stream().mapToInt(Integer::intValue).toArray();
     }
 
 }
