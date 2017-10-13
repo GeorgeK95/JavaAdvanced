@@ -10,21 +10,21 @@ public class LittleJohn {
 
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
-        String small = ">----->";
-        String medium = ">>----->";
-        String large = ">>>----->>";
-        arrowsCount.putIfAbsent(small, 0);
-        arrowsCount.putIfAbsent(medium, 0);
-        arrowsCount.putIfAbsent(large, 0);
+        arrowsCount.putIfAbsent("small", 0);
+        arrowsCount.putIfAbsent("medium", 0);
+        arrowsCount.putIfAbsent("large", 0);
         for (int i = 0; i < 4; i++) {
             String line = in.nextLine();
-            line = writeData(line, large);
-            line = writeData(line, medium);
-            line = writeData(line, small);
+            Matcher matcher = Pattern.compile("(>-{5}>)|(>>-{5}>)|(>>>-{5}>>)").matcher(line);
+            writeData(line, matcher);
         }
-        String num = arrowsCount.get(small) + "" + arrowsCount.get(medium) + "" + arrowsCount.get(large);
+        printResult();
+    }
+
+    private static void printResult() {
+        String num = arrowsCount.get("small") + "" + arrowsCount.get("medium") + "" + arrowsCount.get("large");
         String binary = Integer.toString(Integer.parseInt(num), 2);
-        String binaryReversed = reverseString(binary);
+        String binaryReversed = new StringBuilder(binary).reverse().toString();
         String resultString = binary + binaryReversed;
         int result = Integer.parseInt(resultString, 2);
         System.out.println(result);
@@ -38,18 +38,18 @@ public class LittleJohn {
         return sb.toString();
     }
 
-    private static String writeData(String line, String type) {
-        Matcher matcher = Pattern.compile(type).matcher(line);
+    private static void writeData(String line, Matcher matcher) {
         while (matcher.find()) {
-            arrowsCount.put(type, arrowsCount.get(type) + 1);
-            line = line.replaceFirst(type, "");
+            if (matcher.group(1) != null) {
+                arrowsCount.put("small", arrowsCount.get("small") + 1);
+            } else if (matcher.group(2) != null) {
+                arrowsCount.put("medium", arrowsCount.get("medium") + 1);
+            } else {
+                arrowsCount.put("large", arrowsCount.get("large") + 1);
+            }
         }
 
-        /*while (line.contains(type)) {
-            arrowsCount.put(type, arrowsCount.get(type) + 1);
-            line = line.replaceFirst(type, "");
-        }*/
-        return line;
+
     }
 
 }
