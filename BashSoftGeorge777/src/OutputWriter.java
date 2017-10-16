@@ -12,7 +12,7 @@ public class OutputWriter {
         System.out.println(message);
     }
 
-    public static void writeEmptyLine(String message) {
+    public static void writeEmptyLine() {
         System.out.println();
     }
 

@@ -1,7 +1,7 @@
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Scanner;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.*;
 
 /**
  * Created by George-Lenovo on 6/29/2017.
@@ -10,24 +10,32 @@ public class StudentsRepository {
     public static boolean isDataInitialized = false;
     public static HashMap<String, HashMap<String, ArrayList<Integer>>> studentsByCourse;
 
-    public static void initializeData() {
+    public static void initializeData(String fileName) throws IOException {
         if (isDataInitialized) {
             System.out.println(ExceptionMessages.DATA_ALREADY_INITIALIZED);
             return;
         }
         studentsByCourse = new HashMap<>();
-        readData();
+        readData(fileName);
     }
 
-    private static void readData() {
-        Scanner in = new Scanner(System.in);
-        String inputLine = in.nextLine();
+    private static void readData(String fileName) throws IOException {
+        /*Scanner in = new Scanner(System.in);
+        String inputLine = in.nextLine();*/
 
-        while (!inputLine.equals("")) {
+        String fullpath = SessionData.currentPath + "\\" + fileName;
+        List<String> allLines = Files.readAllLines(Paths.get(fullpath));
+        for (String currentLine : allLines) {
+            String[] split = currentLine.split("\\s+");
+
+        }
+
+        /*while (!inputLine.equals("")) {
             String[] splittedLine = inputLine.split("\\s+");
             addInfo(splittedLine);
             inputLine = in.nextLine();
-        }
+        }*/
+
         isDataInitialized = true;
         OutputWriter.writeMessageOnNewLine("Data read.");
     }

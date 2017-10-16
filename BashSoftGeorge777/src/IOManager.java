@@ -55,7 +55,7 @@ public class IOManager {
         return SessionData.currentPath;
     }
 
-    public static void changeCurrentDirRelativePath(String relativePath) {
+    static void changeCurrentDirRelativePath(String relativePath) {
         if (relativePath.equals("..")) {
             String currentPath = SessionData.currentPath;
             int lastSlashIndex = currentPath.lastIndexOf("\\");
@@ -67,7 +67,7 @@ public class IOManager {
         }
     }
 
-    private static void changeCurrentDirAbsolute(String absolutePath) {
+    static void changeCurrentDirAbsolute(String absolutePath) {
         File f = new File(absolutePath);
         if (!f.exists()) {
             OutputWriter.writeException(ExceptionMessages.INVALID_PATH);
