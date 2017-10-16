@@ -2,6 +2,8 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * Created by George-Lenovo on 6/29/2017.
@@ -20,21 +22,30 @@ public class StudentsRepository {
     }
 
     private static void readData(String fileName) throws IOException {
-        /*Scanner in = new Scanner(System.in);
-        String inputLine = in.nextLine();*/
-
+        String regex = "([A-Z][A-Za-z\\+\\#]+_[A-Z][A-Za-z]{2}_201[45678])\\s+([A-Z][a-z]{0,3}\\d{2}_\\d{2,4})\\s+(\\d+)";
+        Pattern pattern = Pattern.compile(regex);
+        Matcher m;
         String fullpath = SessionData.currentPath + "\\" + fileName;
         List<String> allLines = Files.readAllLines(Paths.get(fullpath));
+
+
         for (String currentLine : allLines) {
-            String[] split = currentLine.split("\\s+");
+            m = pattern.matcher(currentLine);
 
+            if (m.find() && !currentLine.isEmpty()) {
+                String course = m.group(1);
+                String studentName = m.group(2);
+                int studentScore = Integer.parseInt(m.group(3));
+
+                if (!studentsByCourse.containsKey(course)) {
+                    studentsByCourse.put(course, new LinkedHashMap<>());
+                }
+                if (!studentsByCourse.get(course).containsKey(studentName)) {
+                    studentsByCourse.get(course).put(studentName, new ArrayList<>());
+                }
+                studentsByCourse.get(course).get(studentName).add(studentScore);
+            }
         }
-
-        /*while (!inputLine.equals("")) {
-            String[] splittedLine = inputLine.split("\\s+");
-            addInfo(splittedLine);
-            inputLine = in.nextLine();
-        }*/
 
         isDataInitialized = true;
         OutputWriter.writeMessageOnNewLine("Data read.");
@@ -92,5 +103,27 @@ public class StudentsRepository {
         for (Map.Entry<String, ArrayList<Integer>> currentStudent : studentsGrades.entrySet()) {
             OutputWriter.printStudent(currentStudent.getKey(), currentStudent.getValue());
         }
+    }
+
+    public static void printOrderedStudents(String course, String filter, Integer count) {
+        if (!isQueryForCoursePossible(course)) {
+            return;
+        }
+        if (count == null) {
+            count = studentsByCourse.get(course).size();
+        }
+
+        RepositoryFilters.printOrderedStudents(filter, count, studentsByCourse.get(course));
+    }
+
+    public static void printFilteredStudents(String course, String filter, Integer count) {
+        if (!isQueryForCoursePossible(course)) {
+            return;
+        }
+        if (count == null) {
+            count = studentsByCourse.get(course).size();
+        }
+
+        RepositoryFilters.printFilteredStudents(filter, count, studentsByCourse.get(course));
     }
 }

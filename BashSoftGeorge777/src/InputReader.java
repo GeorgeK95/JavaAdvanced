@@ -1,3 +1,4 @@
+import java.io.IOException;
 import java.util.Scanner;
 
 /**
@@ -6,7 +7,7 @@ import java.util.Scanner;
 public class InputReader {
     private static String END_COMMAND = "quit";
 
-    public static void readCommands() {
+    public static void readCommands() throws IOException {
         OutputWriter.writeMessageOnNewLine(SessionData.currentPath + " >");
         Scanner in = new Scanner(System.in);
         String line = in.nextLine().trim();

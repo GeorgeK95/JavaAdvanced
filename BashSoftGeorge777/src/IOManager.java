@@ -1,4 +1,5 @@
 import java.io.File;
+import java.io.IOException;
 import java.util.LinkedList;
 import java.util.Queue;
 
@@ -76,7 +77,8 @@ public class IOManager {
         SessionData.currentPath = absolutePath;
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
+        InputReader.readCommands();
 //        traverseDirectory("E:\\GITHUB\\JavaAdvanced");
 //        StudentsRepository.initializeData();
 //        StudentsRepository.getStudentsByCourse("Unity");

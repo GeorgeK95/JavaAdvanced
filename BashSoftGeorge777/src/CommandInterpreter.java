@@ -44,9 +44,25 @@ public class CommandInterpreter {
             case "open":
                 tryOpenFile(line, data);
                 break;
+            case "show":
+                tryShowCourse(line, data);
+                break;
             default:
                 displayInvalidCommand(line);
                 break;
+        }
+    }
+
+    private static void tryShowCourse(String line, String[] data) {
+        if (data.length != 2 && data.length != 3) {
+            displayInvalidCommand(line);
+            return;
+        }
+        if (data.length == 2) {
+            StudentsRepository.getStudentsByCourse(data[1]);
+        }
+        if (data.length == 3) {
+            StudentsRepository.getStudentMarksInCourse(data[1], data[2]);
         }
     }
 
