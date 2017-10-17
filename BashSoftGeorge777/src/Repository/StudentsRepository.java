@@ -1,3 +1,9 @@
+package Repository;
+
+import IO.OutputWriter;
+import StaticData.ExceptionMessages;
+import StaticData.SessionData;
+
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -113,7 +119,7 @@ public class StudentsRepository {
             count = studentsByCourse.get(course).size();
         }
 
-        RepositoryFilters.printOrderedStudents(filter, count, studentsByCourse.get(course));
+        RepositorySorters.printSortedStudents(filter, count, studentsByCourse.get(course));
     }
 
     public static void printFilteredStudents(String course, String filter, Integer count) {

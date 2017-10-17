@@ -1,3 +1,8 @@
+package IO;
+
+import StaticData.ExceptionMessages;
+import StaticData.SessionData;
+
 import java.io.File;
 import java.io.IOException;
 import java.util.LinkedList;
@@ -56,7 +61,7 @@ public class IOManager {
         return SessionData.currentPath;
     }
 
-    static void changeCurrentDirRelativePath(String relativePath) {
+    public static void changeCurrentDirRelativePath(String relativePath) {
         if (relativePath.equals("..")) {
             String currentPath = SessionData.currentPath;
             int lastSlashIndex = currentPath.lastIndexOf("\\");
@@ -68,7 +73,7 @@ public class IOManager {
         }
     }
 
-    static void changeCurrentDirAbsolute(String absolutePath) {
+    public static void changeCurrentDirAbsolute(String absolutePath) {
         File f = new File(absolutePath);
         if (!f.exists()) {
             OutputWriter.writeException(ExceptionMessages.INVALID_PATH);
@@ -80,12 +85,12 @@ public class IOManager {
     public static void main(String[] args) throws IOException {
         InputReader.readCommands();
 //        traverseDirectory("E:\\GITHUB\\JavaAdvanced");
-//        StudentsRepository.initializeData();
-//        StudentsRepository.getStudentsByCourse("Unity");
+//        Repository.StudentsRepository.initializeData();
+//        Repository.StudentsRepository.getStudentsByCourse("Unity");
 //        String filePath_1 = "E:\\SOFTUNI\\Java Advanced - септември 2017\\BashSoft\\03. Java-Advanced-BashSoft-Lab\\test1.txt";
 //        String filePath_2 = "E:\\SOFTUNI\\Java Advanced - септември 2017\\BashSoft\\03. Java-Advanced-BashSoft-Lab\\test3.txt";
-//        Tester.compareContent(filePath_1, filePath_2);
-//        IOManager.createDirectoryInCurrentFolder("golfajiq");
+//        Judge.Tester.compareContent(filePath_1, filePath_2);
+//        IO.IOManager.createDirectoryInCurrentFolder("golfajiq");
     }
 
 

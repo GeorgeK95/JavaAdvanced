@@ -1,6 +1,10 @@
-/**
+package IO; /**
  * Created by George-Lenovo on 6/29/2017.
  */
+
+import Judge.Tester;
+import Repository.StudentsRepository;
+import StaticData.SessionData;
 
 import java.awt.*;
 import java.io.File;
@@ -30,10 +34,6 @@ public class CommandInterpreter {
             case "readDb":
                 tryReadDbFromFile(line, data);
                 break;
-            case "filter":
-                break;
-            case "order":
-                break;
             case "download":
                 break;
             case "downloadAsync":
@@ -47,9 +47,43 @@ public class CommandInterpreter {
             case "show":
                 tryShowCourse(line, data);
                 break;
+            case "filter":
+                tryPrintFilteredStudents(line, data);
+                break;
+            case "order":
+                tryPrintOrderedStudents(line, data);
+                break;
             default:
                 displayInvalidCommand(line);
                 break;
+        }
+    }
+
+    private static void tryPrintOrderedStudents(String line, String[] data) {
+        if (data.length != 3 && data.length != 4) {
+            displayInvalidCommand(line);
+            return;
+        }
+
+        if (data.length == 3) {
+            StudentsRepository.printOrderedStudents(data[1], data[2], null);
+        }
+        if (data.length == 4) {
+            StudentsRepository.printOrderedStudents(data[1], data[2], Integer.parseInt(data[3]));
+        }
+    }
+
+    private static void tryPrintFilteredStudents(String line, String[] data) {
+        if (data.length != 3 && data.length != 4) {
+            displayInvalidCommand(line);
+            return;
+        }
+
+        if (data.length == 3) {
+            StudentsRepository.printFilteredStudents(data[1], data[2], null);
+        }
+        if (data.length == 4) {
+            StudentsRepository.printFilteredStudents(data[1], data[2], Integer.parseInt(data[3]));
         }
     }
 
