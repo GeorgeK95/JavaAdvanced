@@ -3,6 +3,7 @@ package IO; /**
  */
 
 import Judge.Tester;
+import Network.DownloadManager;
 import Repository.StudentsRepository;
 import StaticData.SessionData;
 
@@ -35,8 +36,10 @@ public class CommandInterpreter {
                 tryReadDbFromFile(line, data);
                 break;
             case "download":
+                tryDownloadFile(line,data);
                 break;
             case "downloadAsync":
+                tryDownloadFileOnNewThread(line,data);
                 break;
             case "help":
                 getHelp();
@@ -57,6 +60,24 @@ public class CommandInterpreter {
                 displayInvalidCommand(line);
                 break;
         }
+    }
+
+    private static void tryDownloadFileOnNewThread(String line, String[] data) {
+        if (data.length != 2) {
+            displayInvalidCommand(line);
+            return;
+        }
+
+        DownloadManager.downloadOnNewThread(data[1]);
+    }
+
+    private static void tryDownloadFile(String line, String[] data) {
+        if (data.length != 2) {
+            displayInvalidCommand(line);
+            return;
+        }
+
+        DownloadManager.download(data[1]);
     }
 
     private static void tryPrintOrderedStudents(String line, String[] data) {

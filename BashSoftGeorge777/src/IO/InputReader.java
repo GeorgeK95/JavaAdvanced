@@ -11,7 +11,7 @@ import java.util.Scanner;
 public class InputReader {
     private static String END_COMMAND = "quit";
 
-    public static void readCommands() throws IOException {
+    public static void readCommands() throws IOException, InterruptedException {
         OutputWriter.writeMessageOnNewLine(SessionData.currentPath + " >");
         Scanner in = new Scanner(System.in);
         String line = in.nextLine().trim();
@@ -19,6 +19,14 @@ public class InputReader {
             CommandInterpreter.interpretCommand(line);
             OutputWriter.writeMessageOnNewLine(SessionData.currentPath + " >");
             line = in.nextLine().trim();
+        }
+
+        Thread[] threads = new Thread[Thread.activeCount()];
+        Thread.enumerate(threads);
+        for (Thread thread : threads) {
+            if (!thread.getName().equals("main") && thread.isDaemon()) {
+                thread.join();
+            }
         }
     }
 
