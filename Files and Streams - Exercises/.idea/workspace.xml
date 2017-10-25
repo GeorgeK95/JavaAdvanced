@@ -15,33 +15,7 @@
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="CopyAPicture.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/CopyAPicture.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-              <folding>
-                <element signature="e#490#491#0" expanded="true" />
-                <element signature="e#519#520#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SerializeArrayList.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/SerializeArrayList.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="132">
-              <caret line="15" column="0" lean-forward="true" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -68,6 +42,8 @@
         <option value="$PROJECT_DIR$/src/GetFolderSize.java" />
         <option value="$PROJECT_DIR$/src/CopyAPicture.java" />
         <option value="$PROJECT_DIR$/src/SerializeArrayList.java" />
+        <option value="$PROJECT_DIR$/src/SerializeCustomObject.java" />
+        <option value="$PROJECT_DIR$/src/CreateZipArchive.java" />
       </list>
     </option>
   </component>
@@ -99,7 +75,6 @@
     </navigator>
     <panes>
       <pane id="Scratches" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -129,6 +104,7 @@
         </subPane>
       </pane>
       <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -141,38 +117,9 @@
     <property name="nodejs_interpreter_path" value="E:/NodeJS/node" />
     <property name="js.eslint.eslintPackage" value="" />
     <property name="js-jscs-nodeInterpreter" value="E:\NodeJS\node.exe" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
-  <component name="RunManager" selected="Application.SerializeArrayList">
-    <configuration default="false" name="WordCount" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <option name="MAIN_CLASS_NAME" value="WordCount" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="Files and Streams - Exercises" />
-      <envs />
-      <method />
-    </configuration>
-    <configuration default="false" name="MergeTwoFiles" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <option name="MAIN_CLASS_NAME" value="MergeTwoFiles" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="Files and Streams - Exercises" />
-      <envs />
-      <method />
-    </configuration>
+  <component name="RunManager" selected="Application.CreateZipArchive">
     <configuration default="false" name="GetFolderSize" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <option name="MAIN_CLASS_NAME" value="GetFolderSize" />
@@ -206,6 +153,36 @@
     <configuration default="false" name="SerializeArrayList" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <option name="MAIN_CLASS_NAME" value="SerializeArrayList" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="Files and Streams - Exercises" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="SerializeCustomObject" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="MAIN_CLASS_NAME" value="SerializeCustomObject" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="Files and Streams - Exercises" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="CreateZipArchive" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="MAIN_CLASS_NAME" value="CreateZipArchive" />
       <option name="VM_PARAMETERS" />
       <option name="PROGRAM_PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
@@ -455,6 +432,7 @@
       <setting name="passParentEnv" value="true" />
       <setting name="launchBrowser" value="true" />
       <setting name="launchBrowserUrl" value="" />
+      <setting name="depsClasspath" value="false" />
       <method />
     </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
@@ -576,6 +554,12 @@
       <method />
     </configuration>
     <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <gulpfile />
+      <tasks />
+      <arguments />
+      <envs />
       <method />
     </configuration>
     <configuration default="true" type="js.build_tools.npm" factoryName="npm">
@@ -592,19 +576,19 @@
       <method />
     </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="Application.WordCount" />
-      <item index="1" class="java.lang.String" itemvalue="Application.MergeTwoFiles" />
-      <item index="2" class="java.lang.String" itemvalue="Application.GetFolderSize" />
-      <item index="3" class="java.lang.String" itemvalue="Application.CopyAPicture" />
-      <item index="4" class="java.lang.String" itemvalue="Application.SerializeArrayList" />
+      <item index="0" class="java.lang.String" itemvalue="Application.GetFolderSize" />
+      <item index="1" class="java.lang.String" itemvalue="Application.CopyAPicture" />
+      <item index="2" class="java.lang.String" itemvalue="Application.SerializeArrayList" />
+      <item index="3" class="java.lang.String" itemvalue="Application.SerializeCustomObject" />
+      <item index="4" class="java.lang.String" itemvalue="Application.CreateZipArchive" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Application.SerializeArrayList" />
-        <item index="1" class="java.lang.String" itemvalue="Application.CopyAPicture" />
-        <item index="2" class="java.lang.String" itemvalue="Application.GetFolderSize" />
-        <item index="3" class="java.lang.String" itemvalue="Application.MergeTwoFiles" />
-        <item index="4" class="java.lang.String" itemvalue="Application.WordCount" />
+        <item index="0" class="java.lang.String" itemvalue="Application.CreateZipArchive" />
+        <item index="1" class="java.lang.String" itemvalue="Application.SerializeCustomObject" />
+        <item index="2" class="java.lang.String" itemvalue="Application.SerializeArrayList" />
+        <item index="3" class="java.lang.String" itemvalue="Application.CopyAPicture" />
+        <item index="4" class="java.lang.String" itemvalue="Application.GetFolderSize" />
       </list>
     </recent_temporary>
   </component>
@@ -619,15 +603,16 @@
       <option name="presentableId" value="Default" />
       <updated>1508012915811</updated>
       <workItem from="1508012917834" duration="5944000" />
+      <workItem from="1508928930552" duration="1442000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="5944000" />
+    <option name="totallyTimeSpent" value="7386000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3287879" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
@@ -674,7 +659,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="8" />
+      <option name="time" value="13" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -683,6 +668,24 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/CopyAPicture.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/SerializeArrayList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/CountCharacterTypes.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="476">
@@ -698,8 +701,8 @@
         <state relative-caret-position="119">
           <caret line="7" column="155" lean-forward="true" selection-start-line="6" selection-start-column="3" selection-end-line="7" selection-end-column="155" />
           <folding>
-            <element signature="e#489#490#0" expanded="true" />
-            <element signature="e#525#526#0" expanded="true" />
+            <element signature="e#489#490#0" expanded="false" />
+            <element signature="e#525#526#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -746,7 +749,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="290">
           <caret line="76" column="11" lean-forward="false" selection-start-line="76" selection-start-column="11" selection-end-line="76" selection-end-column="11" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -764,8 +766,8 @@
           <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#379#380#0" expanded="true" />
-            <element signature="e#448#449#0" expanded="true" />
+            <element signature="e#379#380#0" expanded="false" />
+            <element signature="e#448#449#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -780,21 +782,53 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/CopyAPicture.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
+        <state relative-caret-position="102">
           <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-          <folding>
-            <element signature="e#490#491#0" expanded="true" />
-            <element signature="e#519#520#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/SerializeArrayList.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="15" column="0" lean-forward="true" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+        <state relative-caret-position="112">
+          <caret line="15" column="0" lean-forward="true" selection-start-line="15" selection-start-column="0" selection-end-line="27" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_121/src.zip!/java/io/ObjectOutputStream.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="341" column="22" lean-forward="false" selection-start-line="341" selection-start-column="22" selection-end-line="341" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/CreateZipArchive.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="163">
+          <caret line="20" column="23" lean-forward="false" selection-start-line="20" selection-start-column="23" selection-end-line="20" selection-end-column="23" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/SerializeCustomObject.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+          <folding>
+            <element signature="e#1759#1760#0" expanded="true" />
+            <element signature="e#1786#1787#0" expanded="true" />
+            <element signature="e#1827#1828#0" expanded="true" />
+            <element signature="e#1859#1860#0" expanded="true" />
+            <element signature="e#1897#1898#0" expanded="true" />
+            <element signature="e#1933#1934#0" expanded="true" />
+            <element signature="e#1989#1990#0" expanded="true" />
+            <element signature="e#2039#2040#0" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -19,6 +19,7 @@ public class SerializeArrayList {
             FileInputStream fis = new FileInputStream(path);
             ObjectInputStream ois = new ObjectInputStream(fis);
             Object deserialized = ois.readObject();
+            System.out.println(deserialized);
             ois.close();
             fis.close();
         } catch (IOException | ClassNotFoundException e) {
